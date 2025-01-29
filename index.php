@@ -26,6 +26,26 @@
         $dataDoProjeto = '2024-10-11';
 
         $descricao = 'Meu primeiro portifolio. Escrito em PHP e HTML.';
+
+        $projetos = [
+
+            [
+                "titulo" => "Meu Portifolio",
+                "finalizado" => false,
+                "data" => "2024-10-11",
+                "descricao" => "Meu primeiro portifolio. Escrito em PHP e HTML."
+            ],
+            [
+                "titulo" => "Lista de Tarefas",
+                "finalizado" => true,
+                "data" => "2024-05-11",
+                "descricao" => "Lista de Tarefas. Escrito em PHP e HTML."
+            ],
+            // "Lista de Tarefas",
+            // "Controle de Leitura de Livros",
+            // "mais um projeto",
+
+        ];
     
     ?>
     
@@ -37,54 +57,62 @@
 
     <hr>
 
-    <div
+    <ul>
+
+        <?php foreach($projetos as $projeto): ?>
+
+            <div
     
-        <?php if ( ! ((2024 - $ano) > 2) ): ?>
+                <?php if ( ! ((2024 - $ano) > 2) ): ?>
 
-            style="background-color: burlywood"
-
-        <?php endif; ?>
-    >
-
-        <h2><?= $projeto ?></h2>
-
-        <p><?= $descricao ?></p>
-
-        <div>
-
-            <div><?= $dataDoProjeto ?></div>
-
-            <div>Projeto:
-
-                <?php if ($finalizado): ?>
-
-                    <span style="color: green;">⛔ não finalizado</span>
-                    
-                <?php else: ?>
-
-                    <span style="color: green;">✅ finalizado</span>
+                    style="background-color: burlywood"
 
                 <?php endif; ?>
+            >
 
-                <?php
-                
-                    if ($finalizado) {
+                <h2><?= $projeto['titulo'] ?></h2>
 
-                        echo '✅ finalizado';
+                <p><?= $projeto['descricao'] ?></p>
 
-                    } else {
+                <div>
 
-                        echo '⛔ não finalizado';
+                    <div><?= $projeto['data'] ?></div>
 
-                    }
-                    
-                ?>
+                    <div>Projeto:
+
+                        <?php if (!$projeto['finalizado']): ?>
+
+                            <span style="color: green;">⛔ não finalizado</span>
+                            
+                        <?php else: ?>
+
+                            <span style="color: green;">✅ finalizado</span>
+
+                        <?php endif; ?>
+
+                        <!-- <?php
+                        
+                            if ($projeto['finalizado']) {
+
+                                echo '✅ finalizado';
+
+                            } else {
+
+                                echo '⛔ não finalizado';
+
+                            }
+                            
+                        ?> -->
+
+                    </div>
+
+                </div>
 
             </div>
 
-        </div>
+        <?php endforeach; ?>
 
-    </div>
+    </ul>
 
 </body>
 </html>
