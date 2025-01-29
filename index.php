@@ -32,25 +32,25 @@
             [
                 "titulo" => "Meu Portfolio",
                 "finalizado" => false,
-                "data" => "2024-10-11",
+                "ano" => 2021,
                 "descricao" => "Meu primeiro Portfolio. Escrito em PHP e HTML."
             ],
             [
                 "titulo" => "Lista de Tarefas",
                 "finalizado" => true,
-                "data" => "2024-05-11",
+                "ano" => 2022,
                 "descricao" => "Lista de Tarefas. Escrito em PHP e HTML."
             ],
             [
                 "titulo" => "Controle de Leitura de Vídeos",
                 "finalizado" => true,
-                "data" => "2024-05-11",
+                "ano" => 2024,
                 "descricao" => "Lista de Livros. Escrito em PHP e HTML."
             ],
             [
                 "titulo" => "Mais um Projeto",
                 "finalizado" => false,
-                "data" => "2025-05-11",
+                "ano" => 2025,
                 "descricao" => "Projeto secreto em andamento. Escrito em PHP e HTML."
             ],
             // "Lista de Tarefas",
@@ -71,22 +71,16 @@
 
         }
 
-        function filtarProjetos($listaDeProjetos, $finalizado = null) {
-
-            if (is_null($finalizado)) {
-
-                return $listaDeProjetos;
-
-            }
+        function filtro($itens, $funcao) {
 
             $filtrados = [];
 
-            foreach($listaDeProjetos as $projeto) {
+            foreach($itens as $item) {
 
 
-                if ($projeto['finalizado'] === $finalizado) {
+                if ($funcao($item)) {
 
-                    $filtrados[] = $projeto;
+                    $filtrados[] = $item;
 
                 }
 
@@ -94,8 +88,14 @@
 
             return $filtrados;
 
-        }
-    
+        };
+
+        $projetosFiltrados = filtro($projetos, function($projeto) {
+
+            return $projeto['ano'] === 2024 || $projeto['ano'] === 2021;
+
+        });
+
     ?>
     
     <h1><?= $titulo ?></h1>
@@ -108,7 +108,7 @@
 
     <ul>
 
-        <?php foreach(filtarProjetos($projetos, false) as $projeto): ?>
+        <?php foreach($projetosFiltrados as $projeto): ?>
 
             <div
     
@@ -125,7 +125,7 @@
 
                 <div>
 
-                    <div><?= $projeto['data'] ?></div>
+                    <div><?= $projeto['ano'] ?></div>
 
                     <div>Projeto:
 
