@@ -13,27 +13,27 @@
 
         $saudacao = 'Oi';
 
-        $titulo = $saudacao . ' Portifolio do ' . $nome;
+        $titulo = $saudacao . ' Portfolio do ' . $nome;
 
-        $subtitulo = 'Seja bem vindo ao meu portifolio!!';
+        $subtitulo = 'Seja bem vindo ao meu Portfolio!!';
 
         $ano = 2024;
 
-        $projeto = 'Meu Portifolio';
+        $projeto = 'Meu Portfolio';
 
         $finalizado = false; // true,1 ou false,0
 
         $dataDoProjeto = '2024-10-11';
 
-        $descricao = 'Meu primeiro portifolio. Escrito em PHP e HTML.';
+        $descricao = 'Meu primeiro Portfolio. Escrito em PHP e HTML.';
 
         $projetos = [
 
             [
-                "titulo" => "Meu Portifolio",
+                "titulo" => "Meu Portfolio",
                 "finalizado" => false,
                 "data" => "2024-10-11",
-                "descricao" => "Meu primeiro portifolio. Escrito em PHP e HTML."
+                "descricao" => "Meu primeiro Portfolio. Escrito em PHP e HTML."
             ],
             [
                 "titulo" => "Lista de Tarefas",
@@ -46,6 +46,18 @@
             // "mais um projeto",
 
         ];
+
+        function verificarSeEstaFinalizado($p) {
+
+            if ($p['finalizado']) {
+
+                return '<span style="color: green;">✅ finalizado</span>';
+
+            }
+
+            return '<span style="color: green;">⛔ não finalizado</span>';
+
+        }
     
     ?>
     
@@ -80,7 +92,9 @@
 
                     <div>Projeto:
 
-                        <?php if (!$projeto['finalizado']): ?>
+                        <?= verificarSeEstaFinalizado($projeto) ?>
+
+                        <!-- <?php if (!$projeto['finalizado']): ?>
 
                             <span style="color: green;">⛔ não finalizado</span>
                             
@@ -88,7 +102,7 @@
 
                             <span style="color: green;">✅ finalizado</span>
 
-                        <?php endif; ?>
+                        <?php endif; ?> -->
 
                         <!-- <?php
                         
