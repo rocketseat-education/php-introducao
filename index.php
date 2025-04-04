@@ -51,7 +51,8 @@
                 "titulo" => "Mais um Projeto",
                 "finalizado" => false,
                 "ano" => 2025,
-                "descricao" => "Projeto secreto em andamento. Escrito em PHP e HTML."
+                "descricao" => "Projeto secreto em andamento. Escrito em PHP e HTML.",
+                "stack" => ["PHP", "HTML", "CSS", "JS"]
             ],
             // "Lista de Tarefas",
             // "Controle de Leitura de Livros",
