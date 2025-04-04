@@ -3,149 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portifólio</title>
+    <title>Meu Portfolio</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
-<body>
+<body class="bg-slate-900 text-gray-200">
 
-    <?php
-    
-        $nome = 'João';
+    <?php include('./componentes/header.php') ?>
 
-        $saudacao = 'Oi';
+    <main class="mx-auto max-w-screen-lg min-h-20 px-3 py-6">
 
-        $titulo = $saudacao . ' Portfolio do ' . $nome;
+        <?php include('./componentes/hero.php'); ?>
 
-        $subtitulo = 'Seja bem vindo ao meu Portfolio!!';
+        <section class="space-y-3 py-6" id="projetos">
 
-        $ano = 2024;
+            <h2 class="text-2xl font-bold">Meus Projetos</h2>
 
-        $projeto = 'Meu Portfolio';
+            <?php include('./componentes/projetos.php'); ?>
 
-        $finalizado = false; // true,1 ou false,0
+        </section>
 
-        $dataDoProjeto = '2024-10-11';
+    </main>
 
-        $descricao = 'Meu primeiro Portfolio. Escrito em PHP e HTML.';
+    <footer class="mx-auto max-w-screen-lg min-h-20">
 
-        $projetos = [
+        <div class="border-t border-gray-600 pt-6 px-3 text-gray-400 text-sm">
 
-            [
-                "titulo" => "Meu Portfolio",
-                "finalizado" => false,
-                "ano" => 2021,
-                "descricao" => "Meu primeiro Portfolio. Escrito em PHP e HTML."
-            ],
-            [
-                "titulo" => "Lista de Tarefas",
-                "finalizado" => true,
-                "ano" => 2022,
-                "descricao" => "Lista de Tarefas. Escrito em PHP e HTML."
-            ],
-            [
-                "titulo" => "Controle de Leitura de Vídeos",
-                "finalizado" => true,
-                "ano" => 2024,
-                "descricao" => "Lista de Livros. Escrito em PHP e HTML."
-            ],
-            [
-                "titulo" => "Mais um Projeto",
-                "finalizado" => false,
-                "ano" => 2025,
-                "descricao" => "Projeto secreto em andamento. Escrito em PHP e HTML.",
-                "stack" => ["PHP", "HTML", "CSS", "JS"]
-            ],
-            // "Lista de Tarefas",
-            // "Controle de Leitura de Livros",
-            // "mais um projeto",
+            © Copyright <?= date('Y') ?>. Construído ❤️ por mim mesmo :) .
 
-        ];
+        </div>
 
-        function verificarSeEstaFinalizado($p) {
-
-            if ($p['finalizado']) {
-
-                return '<span style="color: green;">✅ finalizado</span>';
-
-            }
-
-            return '<span style="color: green;">⛔ não finalizado</span>';
-
-        }
-
-        $projetosFiltrados = array_filter($projetos, function($projeto) {
-
-            return $projeto['ano'] === 2024 || $projeto['ano'] === 2021;
-
-        });
-
-    ?>
-    
-    <h1><?= $titulo ?></h1>
-
-    <p><?= $subtitulo ?></p>
-
-    <p><?php echo $ano ?></p>
-
-    <hr>
-
-    <ul>
-
-        <?php foreach($projetosFiltrados as $projeto): ?>
-
-            <div
-    
-                <?php if ( ! ((2024 - $ano) > 2) ): ?>
-
-                    style="background-color: burlywood"
-
-                <?php endif; ?>
-            >
-
-                <h2><?= $projeto['titulo'] ?></h2>
-
-                <p><?= $projeto['descricao'] ?></p>
-
-                <div>
-
-                    <div><?= $projeto['ano'] ?></div>
-
-                    <div>Projeto:
-
-                        <?= verificarSeEstaFinalizado($projeto) ?>
-
-                        <!-- <?php if (!$projeto['finalizado']): ?>
-
-                            <span style="color: green;">⛔ não finalizado</span>
-                            
-                        <?php else: ?>
-
-                            <span style="color: green;">✅ finalizado</span>
-
-                        <?php endif; ?> -->
-
-                        <!-- <?php
-                        
-                            if ($projeto['finalizado']) {
-
-                                echo '✅ finalizado';
-
-                            } else {
-
-                                echo '⛔ não finalizado';
-
-                            }
-                            
-                        ?> -->
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        <?php endforeach; ?>
-
-    </ul>
+    </footer>
 
 </body>
 </html>
