@@ -20,11 +20,11 @@
     <div>
         <ul class="flex gap-x-3 font-medium text-gray-200">
 
-        <?php foreach($itens as $item): ?>
+            <?php foreach($itens as $item): ?>
 
-            <li><a href="<?= $item['href'] ?>" class="hover:underline"><?= $item['texto'] ?></a></li>
+                <li><a href="<?= $item['href'] ?>" class="hover:underline"><?= $item['texto'] ?></a></li>
 
-        <?php endforeach; ?>
+            <?php endforeach; ?>
 
         </ul>
     </div>

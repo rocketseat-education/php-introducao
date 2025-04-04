@@ -1,3 +1,16 @@
+<?php
+
+    $itens = [
+
+        ['href' => '#', 'src' => '/img/twitter.png', 'alt' => 'Twitter Logo'],
+        ['href' => '#', 'src' => '/img/facebook.png', 'alt' => 'Facebook Logo'],
+        ['href' => '#', 'src' => '/img/linkedin.png', 'alt' => 'LinkedIn Logo'],
+        ['href' => '#', 'src' => '/img/youtube.png', 'alt' => 'YouTube Logo']
+
+    ];
+
+?>
+
 <section class="flex gap-x-3">
 
     <!-- Título e Descrição -->
@@ -11,29 +24,17 @@
 
         <ul class="flex gap-x-3 mt-3">
 
-            <li><a href="#" target="_blank">
+            <?php foreach($itens as $item): ?>
 
-                <img class="h-8 hover:animate-bounce" src="/img/twitter.png" alt="Twitter Logo">
+                <li>
+                    <a href="<?= $item['href'] ?>" target="_blank">
 
-            </a></li>
+                        <img class="h-8 hover:animate-bounce" src="<?= $item['src'] ?>" alt="<?= $item['alt'] ?>">
 
-            <li><a href="#" target="_blank">
+                    </a>
+                </li>
 
-                <img class="h-8 hover:animate-bounce" src="/img/facebook.png" alt="Facebook Logo">
-
-            </a></li>
-
-            <li><a href="#" target="_blank">
-
-                <img class="h-8 hover:animate-bounce" src="/img/linkedin.png" alt="LinkedIn Logo">
-
-            </a></li>
-            
-            <li><a href="#" target="_blank">
-
-                <img class="h-8 hover:animate-bounce" src="/img/youtube.png" alt="YouTube Logo">
-
-            </a></li>
+            <?php endforeach; ?>
 
         </ul>
     </div>
